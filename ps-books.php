@@ -58,13 +58,13 @@ if(!class_exists("PSBooks")) {
 			
 			if(isset($wp->query_vars["post_type"])) {
 				if($wp->query_vars["post_type"] == "book") {
-					include WP_PLUGIN_DIR.'/PSBooks/psbooks-template.php';
+					include WP_PLUGIN_DIR.'/psbooks/psbooks-template.php';
 					die();
 				}
 			}
 		}
 		
-		function wp_insert_postd($post_id,$post=null) {
+		function wp_insert_post($post_id,$post=null) {
 			if($post->post_type == "book") {
 				foreach($this->meta_fields as $key) {
 					$value = $_POST[$key];
@@ -111,16 +111,16 @@ if(!class_exists("PSBooks")) {
 			} else { $psbooks_cover = ''; }
 			
 			?>
-			<label><?php _ex('Price:','price label'); ?></label><input name="psbooks-price" value="<?php echo $psbooks-price; ?>" /><br />
+			<label><?php _ex('Price:','price label'); ?></label><input name="psbooks-price" value="<?php echo $psbooks_price; ?>" /><br />
 			<em><?php _ex('(e.g. $39.99)','pricing example'); ?></em><br /><br />
 			
-			<label><?php _ex('Preface URL:','preface URL label'); ?></label><input name="psbooks-preface" value="<?php echo $psbooks-preface; ?>" /><br />
+			<label><?php _ex('Preface URL:','preface URL label'); ?></label><input name="psbooks-preface" value="<?php echo $psbooks_preface; ?>" /><br />
 			<em><?php _ex('(e.g. /wp-content/uploads/book-preface.pdf)','preface URL example'); ?></em><br /><br />
 			
-			<label><?php _ex('Table of Contents URL:','ToC label'); ?></label><input name="psbooks-toc" value="<?php echo $psbooks-toc; ?>" /><br />
+			<label><?php _ex('Table of Contents URL:','ToC label'); ?></label><input name="psbooks-toc" value="<?php echo $psbooks_toc; ?>" /><br />
 			<em><?php _ex('(e.g. /wp-content/uploads/book-toc.pdf)','ToC URL example'); ?></em><br /><br />
 			
-			<label><?php _ex('Cover URL:','cover URL label'); ?></label><input name="psbooks-cover" value="<?php echo $psbooks-cover; ?>" /><br />
+			<label><?php _ex('Cover URL:','cover URL label'); ?></label><input name="psbooks-cover" value="<?php echo $psbooks_cover; ?>" /><br />
 			<em><?php _ex('(e.g. /wp-content/uploads/book-cover.jpg)','cover URL example'); ?></em><br /><br />
 			<?php
 		}
