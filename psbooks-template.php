@@ -8,8 +8,7 @@
 <?php get_header(); ?>
 
 <div id="contentTemplate">
-<?php global $post; ?>
-<?php $custom = get_post_custom($post->ID); ?>
+<?php global $post; $custom = get_post_custom($post->ID); ?>
 
 <div id="book" style="width:600px; margin: auto;">
 <h2><?php the_title(); ?></h2>
